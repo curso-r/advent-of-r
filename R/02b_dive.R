@@ -36,12 +36,11 @@
 
 "data-raw/02a_dive.txt" |>
   readr::read_delim(" ", col_names = c("command", "x")) |>
-  dplyr::mutate(depth = 0) |>
   dplyr::mutate(
-    aim = ifelse(command == "down", x, 0),
-    aim = ifelse(command == "up", -x, aim),
     horizontal = ifelse(command == "forward", x, 0),
     horizontal = cumsum(horizontal),
+    aim = ifelse(command == "down", x, 0),
+    aim = ifelse(command == "up", -x, aim),
     aim = cumsum(aim),
     depth = ifelse(command == "forward", aim * x, 0),
     depth = cumsum(depth),
