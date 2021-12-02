@@ -53,5 +53,4 @@
     is_deeper = sum_depth > prev_sum_depth
   ) |>
   dplyr::summarise(n_deeper = sum(is_deeper, na.rm = TRUE)) |>
-  dplyr::pull(n_deeper) |>
-  cat()
+  dplyr::pull(n_deeper)
