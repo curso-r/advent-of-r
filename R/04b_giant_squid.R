@@ -49,7 +49,6 @@ loosing_score <- function(df, draws) {
 
     # If there was only one board left, calculate its score
     if (length(unique(df$id)) == 1) {
-      print(df)
 
       # Get looser board, sum unmarked numbers and multiply by draws[1]
       output <- df |>
