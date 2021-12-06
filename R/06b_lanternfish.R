@@ -29,7 +29,7 @@ reproduce <- function(fish, n = 80) {
     reproduce(n = n - 1)
 }
 
-# Read list of fish and reproduce for 80 days
+# Read list of fish and reproduce for 256 days
 "data-raw/06b_lanternfish.txt" |>
   readr::read_lines() |>
   stringr::str_split(",") |>
