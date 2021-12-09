@@ -67,7 +67,7 @@ points <- purrr::cross2(2:101, 2:101) |>
   tibble::as_tibble() |>
   tidyr::unnest(c(i, j))
 
-# Explore all basins
+# Explore one basin
 explore <- function(a, b) {
 
   # Skip if point has been explored
@@ -96,6 +96,7 @@ for (i in 2:101) {
   }
 }
 
+# Multiply 3 largest basins
 basins |>
   sort(decreasing = TRUE) |>
   magrittr::extract(1:3) |>
