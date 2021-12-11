@@ -52,7 +52,7 @@ dumbo <- "data-raw/11b_dumbo_octopus.txt" |>
   dplyr::mutate_all(as.numeric) |>
   as.matrix()
 
-# Iterate over 100 steps
+# Iterate over 1000 steps
 for (k in 1:1000) {
   print(k)
 
