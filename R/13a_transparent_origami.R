@@ -188,7 +188,7 @@ for (i in 1) {
     # Number of rows under the fold
     size <- length((line + 1):dim(paper)[1])
 
-    # Get rows above the fold, flip them and AND them with top side
+    # Get rows under the fold, flip them and AND them with top side
     paper[(line - size):(line - 1), ] <-
       paper[(line + 1):(line + size), ][size:1, ] |
       paper[(line - size):(line - 1), ]
