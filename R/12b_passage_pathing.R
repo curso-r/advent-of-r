@@ -68,7 +68,7 @@ get_paths <- function(graph, path = "start", boost = FALSE) {
     dplyr::pull(dest) |>
     purrr::map(purrr::prepend, path)
 
-  # Update available nodes and count paths again
+  # Update available nodes
   graph_ <- if (is_small) dplyr::filter(graph, orig != cave) else graph
 
   # Iterate over possible paths
@@ -81,7 +81,7 @@ get_paths <- function(graph, path = "start", boost = FALSE) {
     }
   }
 
-  # Return global counter
+  # Return global list
   return(all_paths)
 }
 
