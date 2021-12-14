@@ -18,7 +18,7 @@ orig <- "data-raw/14b_extended_polymerization.txt" |>
   stringr::str_split("") |>
   purrr::pluck(1)
 
-# Read template as a string
+# Read template as a table already counting pairs
 poly <- "data-raw/14b_extended_polymerization.txt" |>
   readr::read_lines(n_max = 1) |>
   stringr::str_split("") |>
