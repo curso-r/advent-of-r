@@ -65,7 +65,7 @@ for (vel in vels) {
     x_pos <- x_pos + x_vel
     y_pos <- y_pos + y_vel
 
-    # If this pair of vels hits the target, update global max height
+    # If this pair of vels hits the target, update counter
     if (x_pos %in% target$x && y_pos %in% target$y) {
       n_works <- n_works + 1
       break
