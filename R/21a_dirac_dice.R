@@ -93,7 +93,7 @@ while (TRUE) {
   # Stop if P1 has won
   if (p1_pts >= 1000) break
 
-  # P1 rolls 3 times
+  # P2 rolls 3 times
   p2_rolls <- die:(die + 2)
   p2_rolls <- die_mod(p2_rolls, 100)
 
