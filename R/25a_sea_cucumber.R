@@ -311,31 +311,39 @@
 # Find somewhere safe to land your submarine. What is the first step on which no
 # sea cucumbers move?
 
+# Read seafloor as matrix
 seafloor <- "data-raw/25a_sea_cucumber.txt" |>
   readr::read_lines() |>
   stringr::str_split("") |>
   purrr::flatten_chr() |>
   matrix(nrow = 137, ncol = 139, byrow = TRUE)
 
+# Loop while there still are moves
 i <- 0
 while (TRUE) {
   i <- i + 1
 
+  # All cucumbers
   e <- which(seafloor == ">")
   s <- which(seafloor == "v")
 
+  # Their next positions
   next_e <- ((e + 137) %% 19043) + ((e + 137) %% 19043 == 0) * 19043
   next_s <- s + 1 - (s %% 137 == 0) * 137
 
+  # Move all east-facing cucumbers
   allowed_e <- seafloor[next_e] == "."
   seafloor[next_e[allowed_e]] <- seafloor[e[allowed_e]]
   seafloor[e[allowed_e]] <- "."
 
+  # Move all south-facing cucumbers
   allowed_s <- seafloor[next_s] == "."
   seafloor[next_s[allowed_s]] <- seafloor[s[allowed_s]]
   seafloor[s[allowed_s]] <- "."
 
+  # Check halting condition
   if (all(!allowed_e) && all(!allowed_s)) break
 }
 
+# Print number of moves
 print(i)
